@@ -1,0 +1,6 @@
+pytelegrambotapi
+psycopg2-binary
+pandas
+matplotlib
+numpy
+python-dotenv
