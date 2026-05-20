@@ -94,5 +94,75 @@ class Database:
             query,
             (user_id, mood, work, sleep, comment)
         )
+    def get_history(self, user_id, limit=10):
 
+        query = """
+        SELECT
+            entry_date,
+            mood,
+            hours_work,
+            hours_sleep,
+            comment
+
+        FROM mood_entries
+
+        WHERE user_id = ?
+
+        ORDER BY entry_date DESC
+
+        LIMIT ?
+        """
+
+        return self.execute(
+            query,
+            (user_id, limit),
+            fetchall=True
+        )
+
+    def get_stats(self, user_id):
+
+        query = """
+        SELECT
+            AVG(mood),
+            AVG(hours_work),
+            AVG(hours_sleep)
+
+        FROM mood_entries
+
+        WHERE user_id = ?
+        """
+
+        return self.execute(
+            query,
+            (user_id,),
+            fetchone=True
+        )
+
+    def get_all_entries(self, user_id):
+
+        query = """
+        SELECT
+            entry_date,
+            mood,
+            hours_work,
+            hours_sleep,
+            comment
+
+        FROM mood_entries
+
+        WHERE user_id = ?
+
+        ORDER BY entry_date
+        """
+
+        return self.execute(
+            query,
+            (user_id,),
+            fetchall=True
+        )
+
+
+db = Database()
+
+print("SQLite подключена!")
 
