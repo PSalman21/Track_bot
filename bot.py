@@ -283,6 +283,27 @@ def stats(message):
         text
     )
 
+@bot.message_handler(func=lambda m: m.text == "График")
+def chart(message):
+
+    rows = db.get_all_entries(message.from_user.id)
+
+    if not rows:
+        bot.send_message(
+            message.chat.id,
+            "Нет данных."
+        )
+        return
+
+    path = create_mood_chart(rows)
+
+    with open(path, "rb") as photo:
+
+        bot.send_photo(
+            message.chat.id,
+            photo
+        )
+        
 
 #Callback handlers
 
