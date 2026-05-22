@@ -1,3 +1,5 @@
+DELETE FROM mood_entries;
+
 INSERT INTO mood_entries
 (
     user_id,
