@@ -1,0 +1,17 @@
+.env
+.env.*
+
+database/database.db
+
+__pycache__/
+*.pyc
+
+venv/
+
+mood_chart.png
+
+.idea/
+.vscode/
+
+.DS_Store
+Thumbs.db
