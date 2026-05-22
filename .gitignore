@@ -13,5 +13,5 @@ mood_chart.png
 .idea/
 .vscode/
 
-.DS_Store
-Thumbs.db
+
+database.db
