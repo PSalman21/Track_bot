@@ -55,12 +55,17 @@ class Database:
         self.conn.commit()
 
         return result
+    
+
+
     def clear_user_data(self, user_id):
         self.cursor.execute(
         "DELETE FROM mood_entries WHERE user_id = ?",
         (user_id,)
          )
         self.conn.commit()
+
+
     def add_entry(
         self,
         user_id,
@@ -94,6 +99,7 @@ class Database:
             query,
             (user_id, mood, work, sleep, comment)
         )
+
     def get_history(self, user_id, limit=10):
 
         query = """
@@ -165,4 +171,3 @@ class Database:
 db = Database()
 
 print("SQLite подключена!")
-

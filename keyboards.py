@@ -5,6 +5,7 @@ from telebot.types import (
     InlineKeyboardButton
 )
 
+
 def main_menu():
     kb = ReplyKeyboardMarkup(resize_keyboard=False)
 
@@ -21,7 +22,6 @@ def main_menu():
     )
 
     return kb
-
 
 
 def mood_keyboard():
